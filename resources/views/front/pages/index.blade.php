@@ -1,0 +1,1 @@
+Burasi index seyfesi dir
