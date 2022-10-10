@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
 
 
@@ -14,12 +15,21 @@ Route::group(['middleware' => 'islogin'],function()
 {
     Route::get('/login',[AuthController::class, 'index'])->name('login');
     Route::post('/login',[AuthController::class,'login_post'])->name('login_post');
+    Route::get('/sign-up',[AuthController::class,     'sign_up'])->name('signup');   
+    Route::post('/sign-up',[AuthController::class,'signup_post'])->name('signup_post');
+
 });
 
 Route::group(['middleware' => 'notlogin'],function()
 {
-    Route::get('/',[AdminController::class,     'index'])->name('index');
+    Route::group(['middleware'=>'role:admin'],function()
+    {
+        Route::get('/',[AdminController::class,     'index'])->name('index');
+    });
+    Route::get('/profil-update',[ProfilController::class,'edit'])->name('profil');
+    Route::post('/profil-update',[ProfilController::class,'update'])->name('profil.update');
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
 });
 
 });

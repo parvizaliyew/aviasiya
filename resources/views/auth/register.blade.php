@@ -26,25 +26,58 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-left mb-3">Daxil olun</h3>
-                <form action="{{ route('admin.login_post') }}" method="POST" id="loginForm">
+                <h3 class="card-title text-left mb-3">Qeydiyyatdan Keçin</h3>
+                <form action="{{ route('admin.signup_post') }}" method="POST" id="loginForm">
                   @csrf
                   <div class="form-group">
-                    <label for="email">Email*</label>
+                    <label for="name">Ad *</label>
+                    <input type="text" name="name" id="name" class="form-control p_input">
+                  </div>
+
+                  @error('name')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
+
+                  <div class="form-group">
+                    <label for="lname">Soyad *</label>
+                    <input type="text" name="lname" id="lname" class="form-control p_input">
+                  </div>
+
+                  @error('lname')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
+
+                  <div class="form-group">
+                    <label for="email">Email *</label>
                     <input type="text" name="email" id="email" class="form-control p_input">
                   </div>
+                  @error('email')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
+
+                  <div class="form-group">
+                    <label for="group">Qrup *</label> <br>
+                    <select name="group" id="group">
+                        <option value="">693</option>
+                    </select>
+                  </div>
+
                   <div class="form-group">
                     <label for="password">Şifrə *</label>
                     <input type="text" id="password" name="password" class="form-control p_input">
                   </div>
-                  <div class="form-group d-flex align-items-center justify-content-between">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"> Məni xatırla </label>
-                    </div>
+                  @error('password')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
+                  <div class="form-group">
+                    <label for="password_ver">Şifrəni Təkrarla *</label>
+                    <input type="text" id="password_ver" name="password_ver" class="form-control p_input">
                   </div>
+                  @error('password_ver')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
                   <div class="text-center">
-                    <button id="submit" type="submit"  class="btn btn-primary btn-block enter-btn">Daxil ol</button>
+                    <button id="submit" type="submit"  class="btn btn-primary btn-block enter-btn">Göndər</button>
                   </div>
                   
                 </form>

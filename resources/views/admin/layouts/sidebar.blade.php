@@ -35,8 +35,12 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
+                  <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }} {{ Auth::user()->lname }}</h5>
+                @php
+                $user=App\Models\User::with('roles')->find(auth()->user()->id);
+                $user=$user->roles->pluck('name')->first();
+                @endphp
+                  <span>{{ strtoupper ($user) }}</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -76,15 +80,25 @@
               </div>
             </div>
           </li>
-          
+          @role('admin')
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('admin.index') }}">
+            <a class="nav-link " href="{{ route('admin.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Admin Panel</span>
             </a>
           </li>
+          @endrole
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.profil') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple-outline"></i>
+              </span>
+              <span class="menu-title">Profil</span>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- partial -->

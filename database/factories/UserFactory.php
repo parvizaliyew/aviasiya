@@ -19,11 +19,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Perviz",
-            'email' => "admin@gmail.com",
-            'email_verified_at' => now(),
-            'password' => Hash::make('123'), // password
-            'remember_token' => Str::random(10),
+            // 'name' => "Perviz",
+            // 'email' => "admin@gmail.com",
+            // 'email_verified_at' => now(),
+            // 'password' => Hash::make('123'), // password
+            // 'remember_token' => Str::random(10),
         ];
     }
 
