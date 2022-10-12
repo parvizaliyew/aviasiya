@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\ProfilController;
@@ -26,6 +27,7 @@ Route::group(['middleware' => 'notlogin'],function()
 {
     Route::group(['middleware'=>'role:admin'],function()
     {
+        //SLIDER
         Route::get('/slider',[SliderController::class,     'index'])->name('slider.index');
         Route::get('/slider-create',[SliderController::class,     'create'])->name('slider.create');
         Route::post('/slider-store',[SliderController::class,     'store'])->name('slider.store');
@@ -35,9 +37,18 @@ Route::group(['middleware' => 'notlogin'],function()
         Route::get('/slider-delete/{id}',[SliderController::class,     'delete'])->name('slider.delete');
         Route::get('/slider-sort',[SliderController::class,     'sort'])->name('slider.sort');
 
+        //ABOUT
         Route::get('/about',[AboutController::class ,'index'])->name('about');
         Route::post('/about/{id}',[AboutController::class,    'update'])->name('about.update');
 
+        //NEWS
+        Route::get('/news',[NewsController::class ,'index'])->name('news.index');
+        Route::get('/news-create',[NewsController::class ,'create'])->name('news.create');
+        Route::post('/news-store',[NewsController::class,     'store'])->name('news.store');
+        Route::get('/news-show/{id}',[NewsController::class,     'show'])->name('news.show');
+        Route::get('/news-edit/{id}',[NewsController::class,     'edit'])->name('news.edit');
+        Route::post('/news-update/{id}',[NewsController::class,    'update'])->name('news.update');
+        Route::get('/news-delete/{id}',[NewsController::class,     'delete'])->name('news.delete');
 
     });
     Route::get('/',[AdminController::class,     'index'])->name('index');

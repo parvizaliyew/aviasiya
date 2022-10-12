@@ -106,6 +106,15 @@
               <span class="menu-title">Haqqında</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.news.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-newspaper"></i>
+              </span>
+              <span class="menu-title">Xəbərlər</span>
+            </a>
+          </li>
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">
