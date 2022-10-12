@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
@@ -33,6 +34,9 @@ Route::group(['middleware' => 'notlogin'],function()
         Route::post('/slider-update/{id}',[SliderController::class,    'update'])->name('slider.update');
         Route::get('/slider-delete/{id}',[SliderController::class,     'delete'])->name('slider.delete');
         Route::get('/slider-sort',[SliderController::class,     'sort'])->name('slider.sort');
+
+        Route::get('/about',[AboutController::class ,'index'])->name('about');
+        Route::post('/about/{id}',[AboutController::class,    'update'])->name('about.update');
 
 
     });

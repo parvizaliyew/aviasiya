@@ -92,16 +92,22 @@ class SliderController extends Controller
         [
             'title'=>'required',
             'desc'=>'required',
-            'img'=>'mimes:jpg,png',
 
         ],
         [
             'title.required'=>'Başlığı daxil edin',
             'desc.required'=>'Mətni daxil edin',
-            'img.mimes'=>'Şəkil png jpg formatinda olmalidi',
 
         ]);
 
+        $validate=Validator::make( $data,[
+            'img'=>'mimes:jpg,png',
+        ],
+        [
+            'img.mimes'=>'Şəkil png , jpg formatinda olmalidi',
+        ]);
+
+        
         if($validator->fails())
         {
             return redirect()->back()->withErrors($validator);
@@ -120,6 +126,11 @@ class SliderController extends Controller
         }
         else
         {
+            if($validate->fails())
+        {
+            return redirect()->back()->withErrors($validate);
+        }
+            
             $ext=$request->img->extension();
             $fileName=rand(1,100).time().'.'.$ext;
             $fileNameWithUpload='storage/sliders/'.$fileName;

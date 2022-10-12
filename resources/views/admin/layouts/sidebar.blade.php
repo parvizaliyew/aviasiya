@@ -98,6 +98,14 @@
               <span class="menu-title">Slayder</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.about') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-clipboard-text"></i>
+              </span>
+              <span class="menu-title">Haqqında</span>
+            </a>
+          </li>
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">
