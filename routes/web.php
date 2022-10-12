@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\SliderController;
 
 
 
@@ -24,8 +25,18 @@ Route::group(['middleware' => 'notlogin'],function()
 {
     Route::group(['middleware'=>'role:admin'],function()
     {
-        Route::get('/',[AdminController::class,     'index'])->name('index');
+        Route::get('/slider',[SliderController::class,     'index'])->name('slider.index');
+        Route::get('/slider-create',[SliderController::class,     'create'])->name('slider.create');
+        Route::post('/slider-store',[SliderController::class,     'store'])->name('slider.store');
+        Route::get('/slider-show/{id}',[SliderController::class,     'show'])->name('slider.show');
+        Route::get('/slider-edit/{id}',[SliderController::class,     'edit'])->name('slider.edit');
+        Route::post('/slider-update/{id}',[SliderController::class,    'update'])->name('slider.update');
+        Route::get('/slider-delete/{id}',[SliderController::class,     'delete'])->name('slider.delete');
+        Route::get('/slider-sort',[SliderController::class,     'sort'])->name('slider.sort');
+
+
     });
+    Route::get('/',[AdminController::class,     'index'])->name('index');
     Route::get('/profil-update',[ProfilController::class,'edit'])->name('profil');
     Route::post('/profil-update',[ProfilController::class,'update'])->name('profil.update');
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');

@@ -96,6 +96,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($data))
             {
+            toastr()->success('Uğurla giriş etdiniz.');
             return redirect()->route('admin.index');
             }
             

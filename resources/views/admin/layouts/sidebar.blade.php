@@ -80,13 +80,22 @@
               </div>
             </div>
           </li>
-          @role('admin')
+          
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Admin Panel</span>
+            </a>
+          </li>
+          @role('admin')
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.slider.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-image-filter"></i>
+              </span>
+              <span class="menu-title">Slayder</span>
             </a>
           </li>
           @endrole

@@ -24,8 +24,10 @@
 <script src="{{ asset('manager/') }}/assets/js/misc.js"></script>
 <script src="{{ asset('manager/') }}/assets/js/settings.js"></script>
 <script src="{{ asset('manager/') }}/assets/js/todolist.js"></script>
+
+@stack('js')
 <!-- endinject -->
 <!-- Custom js for this page -->
 <!-- End custom js for this page -->
 </body>
-</html>`                                                                                                                                                
+</html>                                                                                                                                         
