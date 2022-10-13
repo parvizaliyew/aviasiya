@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\KafedraController;
 
 
 
@@ -49,6 +50,17 @@ Route::group(['middleware' => 'notlogin'],function()
         Route::get('/news-edit/{id}',[NewsController::class,     'edit'])->name('news.edit');
         Route::post('/news-update/{id}',[NewsController::class,    'update'])->name('news.update');
         Route::get('/news-delete/{id}',[NewsController::class,     'delete'])->name('news.delete');
+
+        //KAFEDRA
+         Route::get('/kafedra',[KafedraController::class ,'index'])->name('kafedra.index');
+         Route::get('/kafedra-create',[KafedraController::class ,'create'])->name('kafedra.create');
+         Route::post('/kafedra-store',[KafedraController::class,     'store'])->name('kafedra.store');
+         Route::get('/kafedra-show/{id}',[KafedraController::class,     'show'])->name('kafedra.show');
+         Route::get('/kafedra-edit/{id}',[KafedraController::class,     'edit'])->name('kafedra.edit');
+         Route::post('/kafedra-update/{id}',[KafedraController::class,    'update'])->name('kafedra.update');
+         Route::get('/kafedra-delete/{id}',[KafedraController::class,     'delete'])->name('kafedra.delete');
+
+
 
     });
     Route::get('/',[AdminController::class,     'index'])->name('index');

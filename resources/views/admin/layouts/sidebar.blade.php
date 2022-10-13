@@ -115,6 +115,15 @@
               <span class="menu-title">Xəbərlər</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.kafedra.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-library"></i>
+              </span>
+              <span class="menu-title">Kafedra</span>
+            </a>
+          </li>
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">
