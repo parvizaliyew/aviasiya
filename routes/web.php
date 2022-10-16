@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\SliderController;
@@ -68,7 +69,8 @@ Route::group(['middleware' => 'notlogin'],function()
         //TEACHER
         Route::resource('/teacher', TeacherController::class);
 
-
+        //GROUP
+        Route::resource('/group', GroupController::class);
 
     });
     Route::get('/',[AdminController::class,     'index'])->name('index');

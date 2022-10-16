@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Group;
 use App\Models\Dekanat;
 use App\Models\Kafedra;
 use App\Models\Teacher;
@@ -13,7 +14,7 @@ class KafedraController extends Controller
 {
     public function index()
     {
-        $kafedras=Kafedra::with('getDekanat')->paginate(10);
+        $kafedras=Kafedra::with('getDekanat')->paginate(5);
         return view('admin.pages.kafedra.index',compact('kafedras'));
     }
     public function create()
@@ -100,10 +101,17 @@ class KafedraController extends Controller
         $kafedra=Kafedra::findOrFail($id);
         $id=$kafedra->id;
         $teacher=Teacher::where('kafedra_id','id')->first();
+        $group=Group::where('kafedra_id','id')->first();
+
         if($teacher)
         {
             $teacher->kafedra_id=0;
             $teacher->save();
+        }
+        if($group)
+        {
+            $group->kafedra_id=0;
+            $group->save();
         }
         $kafedra->delete();
         toastr()->success('Kafedranız uğurla silindi');

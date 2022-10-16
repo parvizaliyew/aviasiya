@@ -142,11 +142,20 @@
               <span class="menu-title">Müəllim</span>
             </a>
           </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="<?php echo e(route('admin.group.index')); ?>">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple-outline"></i>
+              </span>
+              <span class="menu-title">Qrup</span>
+            </a>
+          </li>
           <?php endif; ?>
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.profil')); ?>">
               <span class="menu-icon">
-                <i class="mdi mdi-account-multiple-outline"></i>
+                <i class="mdi mdi-account-star"></i>
               </span>
               <span class="menu-title">Profil</span>
             </a>
