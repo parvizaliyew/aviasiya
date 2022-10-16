@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Dekanat;
+use App\Models\Kafedra;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Kafedra extends Model
+class Teacher extends Model
 {
     use HasFactory;
 
-    public function getDekanat()
+    public function getKafedra()
     {
-        return $this->belongsTo(Dekanat::class,'dekanat_id','id');
+        return $this->belongsTo(Kafedra::class, 'kafedra_id', 'id');
     }
 }

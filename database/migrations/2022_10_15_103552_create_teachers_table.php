@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kafedras', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('dekanat_id');
+            $table->string('surname');
+            $table->string('img');
+            $table->tinyInteger('kafedra_id');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kafedras');
+        Schema::dropIfExists('teachers');
     }
 };

@@ -24,7 +24,8 @@
             <thead>
               <tr>
                 <th style="font-size:20px"> # </th>
-                <th style="font-size:20px">Kafedra  adı </th>
+                <th style="font-size:20px">Kafedra  </th>
+                <th style="font-size:20px">Dekanat  </th>
                 <th style="font-size:20px"> Proseslər </th>
               </tr>
             </thead>
@@ -37,6 +38,13 @@
                 <td>
                   {{ $kafedra->name }}
                 </td>
+                <td>
+                  @if ($kafedra->dekanat_id==0)
+                      Dekanatlığ silinib
+                  @else
+                  {{ $kafedra->getDekanat->name }}
+                  @endif
+                </td> 
                 <td>
                     <a href="{{ route('admin.kafedra.show',$kafedra->id) }}"><i  style="font-size: 1.975rem !important ; color:blue ; margin-right:7px" class="mdi mdi-eye"></i> </a>
                     <a href="{{ route('admin.kafedra.edit',$kafedra->id) }}"><i  style="font-size: 1.975rem !important ; color:blue ; margin-right:7px" class="mdi mdi-grease-pencil"></i></a>

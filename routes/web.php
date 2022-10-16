@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\DekanatController;
 use App\Http\Controllers\Admin\KafedraController;
+use App\Http\Controllers\Admin\TeacherController;
 
 
 
@@ -59,6 +61,12 @@ Route::group(['middleware' => 'notlogin'],function()
          Route::get('/kafedra-edit/{id}',[KafedraController::class,     'edit'])->name('kafedra.edit');
          Route::post('/kafedra-update/{id}',[KafedraController::class,    'update'])->name('kafedra.update');
          Route::get('/kafedra-delete/{id}',[KafedraController::class,     'delete'])->name('kafedra.delete');
+
+         //DEKANAT
+         Route::resource('/dekanat', DekanatController::class);
+
+        //TEACHER
+        Route::resource('/teacher', TeacherController::class);
 
 
 

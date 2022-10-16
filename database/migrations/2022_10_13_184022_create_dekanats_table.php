@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kafedras', function (Blueprint $table) {
+        Schema::create('dekanats', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('dekanat_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kafedras');
+        Schema::dropIfExists('dekanats');
     }
 };

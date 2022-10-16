@@ -1,0 +1,2 @@
+Burasi index seyfesi dir
+<a href="<?php echo e(route('admin.login')); ?>">[sign in]</a>      <a href="<?php echo e(route('admin.signup')); ?>">[sign up]</a><?php /**PATH C:\xampp\htdocs\aviasiya\resources\views/front/pages/index.blade.php ENDPATH**/ ?>

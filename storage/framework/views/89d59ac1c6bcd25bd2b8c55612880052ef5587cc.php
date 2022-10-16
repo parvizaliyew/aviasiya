@@ -4,43 +4,43 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title','Admin Panel')</title>
+    <title><?php echo $__env->yieldContent('title','Admin Panel'); ?></title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('manager/') }}/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="{{ asset('manager/') }}/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?php echo e(asset('manager/')); ?>/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('manager/')); ?>/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('manager/') }}/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo e(asset('manager/')); ?>/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('manager/') }}/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="<?php echo e(asset('manager/')); ?>/assets/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="../../index.html"><img src="{{ asset('manager/') }}/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="{{ asset('manager/') }}/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="../../index.html"><img src="<?php echo e(asset('manager/')); ?>/assets/images/logo.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="<?php echo e(asset('manager/')); ?>/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="{{ asset('manager/') }}/assets/images/faces/face15.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="<?php echo e(asset('manager/')); ?>/assets/images/faces/face15.jpg" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }} {{ Auth::user()->lname }}</h5>
-                @php
+                  <h5 class="mb-0 font-weight-normal"><?php echo e(Auth::user()->name); ?> <?php echo e(Auth::user()->lname); ?></h5>
+                <?php
                 $user=App\Models\User::with('roles')->find(auth()->user()->id);
                 $user=$user->roles->pluck('name')->first();
-                @endphp
-                  <span>{{ strtoupper ($user) }}</span>
+                ?>
+                  <span><?php echo e(strtoupper ($user)); ?></span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -82,16 +82,16 @@
           </li>
           
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Admin Panel</span>
             </a>
           </li>
-          @role('admin')
+          <?php if(auth()->check() && auth()->user()->hasRole('admin')): ?>
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.slider.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.slider.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-image-filter"></i>
               </span>
@@ -99,7 +99,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.about') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.about')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-clipboard-text"></i>
               </span>
@@ -108,7 +108,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.news.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.news.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-newspaper"></i>
               </span>
@@ -117,7 +117,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.kafedra.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.kafedra.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-library"></i>
               </span>
@@ -126,7 +126,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.dekanat.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.dekanat.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-bookmark"></i>
               </span>
@@ -135,16 +135,16 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.teacher.index') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.teacher.index')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-book-open-page-variant"></i>
               </span>
               <span class="menu-title">Müəllim</span>
             </a>
           </li>
-          @endrole
+          <?php endif; ?>
           <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.profil') }}">
+            <a class="nav-link " href="<?php echo e(route('admin.profil')); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-account-multiple-outline"></i>
               </span>
@@ -155,4 +155,4 @@
         </ul>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
+      <div class="container-fluid page-body-wrapper"><?php /**PATH C:\xampp\htdocs\aviasiya\resources\views/admin/layouts/sidebar.blade.php ENDPATH**/ ?>
