@@ -99,20 +99,15 @@ class KafedraController extends Controller
     public function delete($id)
     {
         $kafedra=Kafedra::findOrFail($id);
-        $id=$kafedra->id;
-        $teacher=Teacher::where('kafedra_id','id')->first();
-        $group=Group::where('kafedra_id','id')->first();
-
-        if($teacher)
-        {
-            $teacher->kafedra_id=0;
-            $teacher->save();
-        }
-        if($group)
-        {
-            $group->kafedra_id=0;
-            $group->save();
-        }
+        $teacher=Teacher::where('kafedra_id',$kafedra->id)->update([
+            'kafedra_id'=>0
+        ]);
+        $group=Group::where('kafedra_id',$kafedra->id)->update([
+            'kafedra_id'=>0
+        ]);
+        
+        
+        
         $kafedra->delete();
         toastr()->success('Kafedranız uğurla silindi');
         return redirect()->route('admin.kafedra.index');

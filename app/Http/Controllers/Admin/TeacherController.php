@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Lesson;
 use App\Models\Kafedra;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -204,6 +205,12 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         $teacher=Teacher::findOrFail($id);
+
+        $lesson=Lesson::where('muellim_id',$teacher->id)->update(
+            [
+                'muellim_id'=>0
+            ]
+        );
         if(File::exists($teacher->img))
             {
                 File::delete($teacher->img);

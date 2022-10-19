@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Group;
+use App\Models\Lesson;
 use App\Models\Kafedra;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -137,6 +138,11 @@ class GroupController extends Controller
     public function destroy($id)
     {
         $group=Group::findOrFail($id);
+        $lesson=Lesson::where('qrup_id',$group->id)->update(
+            [
+                'qrup_id'=>0
+            ]
+        );
         $group->delete();
         toastr()->success('Qrupunuz uğurla silindi');
         return redirect()->route('admin.group.index');

@@ -131,12 +131,10 @@ class DekanatController extends Controller
     public function destroy($id)
     {
         $dekanat=Dekanat::findOrFail($id);
-        $id=$dekanat->id;
-        $kafedra=Kafedra::where('dekanat_id','id')->first();
-        if ($kafedra) {
-        $kafedra->dekanat_id=0;
-        $kafedra->save();
-        }
+        $kafedra=Kafedra::where('dekanat_id',$dekanat->id)->update([
+            'dekanat_id'=>0
+        ]);
+        
         
         $dekanat->delete();
         toastr()->success('Dekanatlıgız uğurla silindi');

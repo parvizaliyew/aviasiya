@@ -151,6 +151,15 @@
               <span class="menu-title">Qrup</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="<?php echo e(route('admin.lesson.index')); ?>">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">Dərslər</span>
+            </a>
+          </li>
           <?php endif; ?>
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.profil')); ?>">

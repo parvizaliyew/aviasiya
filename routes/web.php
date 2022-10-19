@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DekanatController;
 use App\Http\Controllers\Admin\KafedraController;
@@ -71,6 +72,10 @@ Route::group(['middleware' => 'notlogin'],function()
 
         //GROUP
         Route::resource('/group', GroupController::class);
+
+        //LESSON
+        Route::resource('/lesson', LessonController::class);
+
 
     });
     Route::get('/',[AdminController::class,     'index'])->name('index');
