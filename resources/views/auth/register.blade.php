@@ -31,7 +31,7 @@
                   @csrf
                   <div class="form-group">
                     <label for="name">Ad *</label>
-                    <input type="text" name="name" id="name" class="form-control p_input">
+                    <input  type="text" name="name" id="name" class="form-control p_input">
                   </div>
 
                   @error('name')
@@ -57,10 +57,17 @@
 
                   <div class="form-group">
                     <label for="group">Qrup *</label> <br>
-                    <select name="group" id="group">
-                        <option value="">693</option>
+                    <select class="form-control"  name="group_id" id="group">
+                      <option  value="" >Qrup Seçin</option>
+                      @foreach ($groups as $g)
+                      <option value="{{ $g->id }}">{{ $g->name }}</option>
+                      @endforeach
                     </select>
                   </div>
+
+                  @error('group_id')
+                  <span class="text-danger mt-2">{{ $message }}</span> <br>
+                  @enderror
 
                   <div class="form-group">
                     <label for="password">Şifrə *</label>
@@ -71,7 +78,7 @@
                   @enderror
                   <div class="form-group">
                     <label for="password_ver">Şifrəni Təkrarla *</label>
-                    <input type="text" id="password_ver" name="password_ver" class="form-control p_input">
+                    <input type="password" id="password_ver" name="password_ver" class="form-control p_input">
                   </div>
                   @error('password_ver')
                   <span class="text-danger mt-2">{{ $message }}</span> <br>

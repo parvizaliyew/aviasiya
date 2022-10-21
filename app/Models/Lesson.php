@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Models\Group;
 use App\Models\Teacher;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lesson extends Model
 {
-    use HasFactory;
+    use HasFactory, HasRoles;
 
     public function getTeacher()
     {

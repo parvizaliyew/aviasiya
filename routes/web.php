@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Examresult;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Auth\ProfilController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\LessonController;
+use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DekanatController;
 use App\Http\Controllers\Admin\KafedraController;
@@ -76,8 +79,14 @@ Route::group(['middleware' => 'notlogin'],function()
         //LESSON
         Route::resource('/lesson', LessonController::class);
 
+        //Exam Result
+        Route::resource('/exam', ExamController::class);
+
+
 
     });
+    // Route::get('/exam-result',[ResultController::class,'index'])->name('result');
+
     Route::get('/',[AdminController::class,     'index'])->name('index');
     Route::get('/profil-update',[ProfilController::class,'edit'])->name('profil');
     Route::post('/profil-update',[ProfilController::class,'update'])->name('profil.update');

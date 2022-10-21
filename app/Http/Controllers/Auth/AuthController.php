@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,8 @@ class AuthController extends Controller
 {
     public function sign_up()
     {
-        return view('auth.register');
+        $groups=Group::get();
+        return view('auth.register',compact('groups'));
     }
 
     public function signup_post(Request $request)
@@ -22,6 +24,7 @@ class AuthController extends Controller
             'name'=>$request->name,
             'lname'=>$request->name,
             'email'=>$request->email,
+            'group_id'=>$request->group_id,
             'password'=>$request->password,
             'password_ver'=>$request->password_ver,
 
@@ -33,6 +36,7 @@ class AuthController extends Controller
             'lname'=>'required',
             'email'=>'required|email',
             'password'=>'required',
+            'group_id'=>'required',
             'password_ver'=>'required',
         ],
         [
@@ -42,6 +46,7 @@ class AuthController extends Controller
             'email.email'=>'Emailinizi düzgün formatda deyil',
             'password.required'=>'Şifrənizi daxil edin',
             'password_ver.required'=>'Şifrənizi daxil edin',
+            'group_id.required'=>'Qrupunuzu daxil edin',
 
         ]);
 
@@ -58,6 +63,7 @@ class AuthController extends Controller
             $user->lname=$request->lname;
             $user->email=$request->email;
             $user->password=Hash::make($request->password);
+            $user->group_id=$request->group_id;
             $user->save();
             $user->assignRole('tələbə');
             toastr()->success('Uğurla qeydiyyatdan kecdiniz');

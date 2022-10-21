@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Exam;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -42,4 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+    public function getGroup()
+    {
+        return $this->belongsTo(User::class, 'group_id', 'id');
+    }
+
+    // public function getExam()
+    // {
+    //     return $this->hasMany(Exam::class,'user_id','id');
+    // }
 }

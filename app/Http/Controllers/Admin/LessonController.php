@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Exam;
 use App\Models\Group;
 use App\Models\Lesson;
+use App\Models\Kafedra;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Kafedra;
 
 class LessonController extends Controller
 {
@@ -148,10 +149,12 @@ class LessonController extends Controller
     public function destroy($id)
     {
         $lesson=Lesson::findOrFail($id);
+        $exam=Exam::where('lesson_id',$lesson->id)->update(
+            [
+                'lesson_id'=>0
+            ]
+        );        
         $lesson->delete();
-
-        
-        
         toastr()->success('Dərsiniz uğurla silindi');
         return redirect()->route('admin.lesson.index');
     }

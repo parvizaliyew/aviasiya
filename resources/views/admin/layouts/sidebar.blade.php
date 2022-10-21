@@ -160,6 +160,15 @@
               <span class="menu-title">Dərslər</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.exam.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">İmtahan balı</span>
+            </a>
+          </li>
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">
@@ -169,6 +178,15 @@
               <span class="menu-title">Profil</span>
             </a>
           </li>
+
+          {{-- <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.result') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-star"></i>
+              </span>
+              <span class="menu-title">Imtahan Nəticəsi</span>
+            </a>
+          </li> --}}
           
         </ul>
       </nav>
