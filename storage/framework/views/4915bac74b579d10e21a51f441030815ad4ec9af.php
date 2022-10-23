@@ -24,9 +24,10 @@
             <thead>
               <tr>
                 <th style="font-size:20px"> # </th>
+                <th style="font-size:20px"> Tələbə  </th>
+                <th style="font-size:20px"> Qrup  </th>
                 <th style="font-size:20px"> Bal</th>
                 <th style="font-size:20px"> Dərs </th>
-                <th style="font-size:20px"> Tələbə  </th>
                 <th style="font-size:20px"> Proseslər </th>
               </tr>
             </thead>
@@ -36,6 +37,20 @@
                 <td class="handle">
                     <?php echo e($loop->index+1); ?>
 
+                </td>
+
+                <td>
+                  <?php echo e($exam->getUser->name); ?>
+
+                </td>
+
+                <td>
+                <?php if($exam->qrup_id==0): ?>
+                    Qrup silinib
+                <?php else: ?>
+                <?php echo e($exam->getGroup->name); ?>
+
+                <?php endif; ?>
                 </td>
 
                 <td>
@@ -52,10 +67,7 @@
                 <?php endif; ?>
                 </td>
 
-                <td>
-                <?php echo e($exam->getUser->name); ?>
-
-                </td>
+                
                 
                 <td>
                     <a href="<?php echo e(route('admin.exam.show',$exam->id)); ?>"><i  style="font-size: 1.975rem !important ; color:blue ; margin-right:7px" class="mdi mdi-eye"></i> </a>

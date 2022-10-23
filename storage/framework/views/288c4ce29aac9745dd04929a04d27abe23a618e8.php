@@ -46,6 +46,15 @@ unset($__errorArgs, $__bag); ?>
             </select>
           </div>
 
+          <div class="form-group">
+            <label for="exampleInputName1">Qrup Seç </label>
+            <select name="qrup_id" class="form-control" id="">
+              <?php $__currentLoopData = $groups; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $g): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <option <?php echo e($exam->qrup_id==$g->id ? 'selected' : ''); ?> value="<?php echo e($g->id); ?>"><?php echo e($g->name); ?></option>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+          </div>
+
           <button type="submit" class="btn btn-primary mr-2">Yenilə</button>
           <button class="btn btn-dark"><a href="<?php echo e(route('admin.exam.index')); ?>">Geri</a></button>
         </form>

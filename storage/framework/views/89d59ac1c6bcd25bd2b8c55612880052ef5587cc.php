@@ -169,6 +169,15 @@
               <span class="menu-title">İmtahan balı</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="<?php echo e(route('admin.mesaj.index')); ?>">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">Mesajlar</span>
+            </a>
+          </li>
           <?php endif; ?>
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.profil')); ?>">
@@ -179,7 +188,16 @@
             </a>
           </li>
 
-          
+         <?php if(auth()->check() && auth()->user()->hasRole('tələbə')): ?>
+         <li class="nav-item menu-items">
+          <a class="nav-link " href="<?php echo e(route('admin.result')); ?>">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-star"></i>
+            </span>
+            <span class="menu-title">Imtahan Nəticəsi</span>
+          </a>
+        </li>
+         <?php endif; ?>
           
         </ul>
       </nav>

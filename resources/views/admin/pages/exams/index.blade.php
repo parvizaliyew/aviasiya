@@ -24,9 +24,10 @@
             <thead>
               <tr>
                 <th style="font-size:20px"> # </th>
+                <th style="font-size:20px"> Tələbə  </th>
+                <th style="font-size:20px"> Qrup  </th>
                 <th style="font-size:20px"> Bal</th>
                 <th style="font-size:20px"> Dərs </th>
-                <th style="font-size:20px"> Tələbə  </th>
                 <th style="font-size:20px"> Proseslər </th>
               </tr>
             </thead>
@@ -35,6 +36,18 @@
               <tr >
                 <td class="handle">
                     {{ $loop->index+1 }}
+                </td>
+
+                <td>
+                  {{ $exam->getUser->name }}
+                </td>
+
+                <td>
+                @if ($exam->qrup_id==0)
+                    Qrup silinib
+                @else
+                {{ $exam->getGroup->name }}
+                @endif
                 </td>
 
                 <td>
@@ -49,9 +62,7 @@
                 @endif
                 </td>
 
-                <td>
-                {{ $exam->getUser->name }}
-                </td>
+                
                 
                 <td>
                     <a href="{{ route('admin.exam.show',$exam->id) }}"><i  style="font-size: 1.975rem !important ; color:blue ; margin-right:7px" class="mdi mdi-eye"></i> </a>

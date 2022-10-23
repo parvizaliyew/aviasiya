@@ -43,6 +43,20 @@
           @error('user_id')
           <span class="text-danger mt-2">{{ $message }}</span> <br>
           @enderror
+
+          <div class="form-group">
+            <label for="exampleInputName4"> Qrup </label>
+            <select name="qrup_id" class="form-control" id="exampleInputName4">
+                <option value="">Seç</option>
+              @foreach ($groups as $g)
+              <option value="{{ $g->id }}">{{ $g->name }}</option>
+              @endforeach
+            </select>
+          </div>
+          @error('qrup_id')
+          <span class="text-danger mt-2">{{ $message }}</span> <br>
+          @enderror
+
           <button type="submit" class="btn btn-primary mr-2">Əlavə Et</button>
           <button class="btn btn-dark"><a href="{{ route('admin.exam.index') }}">Geri</a></button>
         </form>

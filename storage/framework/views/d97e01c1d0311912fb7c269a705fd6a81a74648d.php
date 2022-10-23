@@ -31,7 +31,7 @@
                   <?php echo csrf_field(); ?>
                   <div class="form-group">
                     <label for="name">Ad *</label>
-                    <input value="<?php echo e(old('name')); ?>" type="text" name="name" id="name" class="form-control p_input">
+                    <input  type="text" name="name" id="name" class="form-control p_input">
                   </div>
 
                   <?php $__errorArgs = ['name'];

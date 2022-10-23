@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ResultController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DekanatController;
 use App\Http\Controllers\Admin\KafedraController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\TeacherController;
 
 
@@ -82,10 +83,17 @@ Route::group(['middleware' => 'notlogin'],function()
         //Exam Result
         Route::resource('/exam', ExamController::class);
 
+        //Mesajlar
+        Route::get('/messages',[MessageController::class,          'index'])->name('mesaj.index');
+        Route::get('/messages/{id}',[MessageController::class,     'show'])->name('mesaj.show');
+        Route::get('/messages/delete/{id}',[MessageController::class,     'delete'])->name('mesaj.delete');
+
+
+
 
 
     });
-    // Route::get('/exam-result',[ResultController::class,'index'])->name('result');
+     Route::get('/exam-result',[ResultController::class,'index'])->name('result');
 
     Route::get('/',[AdminController::class,     'index'])->name('index');
     Route::get('/profil-update',[ProfilController::class,'edit'])->name('profil');
@@ -98,4 +106,10 @@ Route::group(['middleware' => 'notlogin'],function()
 
 //FRONT
 Route::get('/', [FrontController::class,'index'])->name('index');
+Route::get('/haqqimizda', [FrontController::class,'about'])->name('about');
+Route::get('/elaqe', [FrontController::class,'contact'])->name('contact');
+Route::post('/elaqe', [FrontController::class,'contact_post'])->name('contact_post');
+Route::get('/xeberler', [FrontController::class,'news'])->name('news');
+
+
 

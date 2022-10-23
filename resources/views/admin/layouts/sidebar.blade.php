@@ -169,6 +169,15 @@
               <span class="menu-title">İmtahan balı</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.mesaj.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">Mesajlar</span>
+            </a>
+          </li>
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">
@@ -179,14 +188,16 @@
             </a>
           </li>
 
-          {{-- <li class="nav-item menu-items">
-            <a class="nav-link " href="{{ route('admin.result') }}">
-              <span class="menu-icon">
-                <i class="mdi mdi-account-star"></i>
-              </span>
-              <span class="menu-title">Imtahan Nəticəsi</span>
-            </a>
-          </li> --}}
+         @role('tələbə')
+         <li class="nav-item menu-items">
+          <a class="nav-link " href="{{ route('admin.result') }}">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-star"></i>
+            </span>
+            <span class="menu-title">Imtahan Nəticəsi</span>
+          </a>
+        </li>
+         @endrole
           
         </ul>
       </nav>

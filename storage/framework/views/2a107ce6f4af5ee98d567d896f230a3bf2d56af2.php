@@ -23,12 +23,17 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleInputName2"> Tələbə </label>
-            <?php if($exam->user_id==0): ?>
-            <input type="text" name="title" value="Tələbə silinib" class="form-control" id="exampleInputName2">
+            <label for="exampleInputName2"> Qrup </label>
+            <?php if($exam->qrup_id==0): ?>
+            <input type="text"  value="Qrup silinib" class="form-control" id="exampleInputName2">
             <?php else: ?>
-            <input type="text" name="title" value="<?php echo e($exam->getUser->name); ?>" class="form-control" id="exampleInputName2">
+            <input type="text" value="<?php echo e($exam->getGroup->name); ?>" class="form-control" id="exampleInputName2">
             <?php endif; ?>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputName2"> Tələbə </label>
+            <input type="text" name="title" value="<?php echo e($exam->getUser->name); ?>" class="form-control" id="exampleInputName2">
           </div>
           <button class="btn btn-dark"><a href="<?php echo e(route('admin.exam.index')); ?>">Geri</a></button>
       </div>

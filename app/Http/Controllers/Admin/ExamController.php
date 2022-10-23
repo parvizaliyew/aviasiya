@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Exam;
 use App\Models\User;
+use App\Models\Group;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,7 @@ class ExamController extends Controller
      */
     public function index()
     {
-        $exams=Exam::with('getUser','getLesson')->paginate('10');
+        $exams=Exam::with('getUser','getLesson','getGroup')->paginate('10');
 
         return view('admin.pages.exams.index',compact('exams'));
     }
@@ -34,7 +35,8 @@ class ExamController extends Controller
             return $q->where('name','tələbə');
         })->get();
         $lessons=Lesson::get();
-        return  view('admin.pages.exams.create',compact('lessons','users'));
+        $groups=Group::get();
+        return  view('admin.pages.exams.create',compact('lessons','users','groups'));
     }
 
     /**
@@ -48,13 +50,16 @@ class ExamController extends Controller
         $data=[
             'price'=>$request->price,
             'lesson_id'=>$request->lesson_id,
-            'user_id'=>$request->user_id
+            'user_id'=>$request->user_id,
+            'qrup_id'=>$request->qrup_id
+
         ];
     
             $validator =Validator::make($data,[
                 'price'=>['required', 'integer', 'max:100', 'min:1'],
                 'lesson_id'=>'required',
                 'user_id'=>'required',
+                'qrup_id'=>'required',
             ],
             [
                 'price.required'=>'Balı daxil edin',
@@ -62,6 +67,7 @@ class ExamController extends Controller
                 'price.min'=>'Bal 0-100 arasında daxil edin',
                 'price.max'=>'Balı 0-100 arasında  daxil edin',
                 'lesson_id.required'=>'Dərsi daxil edin',
+                'qrup_id.required'=>'Qrupu daxil edin',
                 'user_id.required'=>'Tələbəni daxil edin',
 
             ]);
@@ -75,6 +81,7 @@ class ExamController extends Controller
                 $exam->price=$request->price;
                 $exam->lesson_id=$request->lesson_id;
                 $exam->user_id=$request->user_id;
+                $exam->qrup_id=$request->qrup_id;
                 $exam->save();
     
                 toastr()->success('İmtahani neticesi uğurla əlavə olundu');
@@ -89,7 +96,7 @@ class ExamController extends Controller
      */
     public function show($id)
     {
-        $exam=Exam::with('getUser','getLesson')->findOrFail($id);
+        $exam=Exam::with('getUser','getLesson','getGroup')->findOrFail($id);
         return view('admin.pages.exams.show',compact('exam'));
     }
 
@@ -104,7 +111,8 @@ class ExamController extends Controller
         $exam=Exam::findOrFail($id);
         $lessons=Lesson::get();
         $users=User::role('tələbə')->get();
-        return view('admin.pages.exams.edit',compact('lessons','users','exam'));
+        $groups=Group::get();
+        return view('admin.pages.exams.edit',compact('lessons','users','exam','groups'));
     }
 
     /**
@@ -138,7 +146,8 @@ class ExamController extends Controller
             $exam=Exam::findOrFail($id);
             $exam->price=$request->price;
             $exam->user_id=$request->user_id;
-            $exam->user_id=$request->user_id;
+            $exam->lesson_id=$request->lesson_id;
+            $exam->qrup_id=$request->qrup_id;
 
             $exam->save();
     
@@ -156,7 +165,6 @@ class ExamController extends Controller
     {
         $exam=Exam::findOrFail($id);
         $exam->delete();
-
         toastr()->success('İmtahan nəticəsi uğurla silindi');
         return redirect()->route('admin.exam.index');
     }

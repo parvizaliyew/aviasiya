@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Exam;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,10 +12,9 @@ class ResultController extends Controller
 {
     public function index()
     {
-        // $user=User::where('id',Auth::user()->id)->with('getExam')->get();
-        // foreach ($user as $key => $u) {
-        //     return $u->getExam->price;
-        // }
-        // return view('admin.pages.result.index');
+       $group_id=Auth::user()->group_id;
+       $exams=Exam::where('qrup_id',$group_id)->with('getUser','getLesson','getGroup')->get();
+
+       return view('admin.pages.result.index',compact('exams'));
     }
 }

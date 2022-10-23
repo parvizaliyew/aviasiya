@@ -23,6 +23,15 @@
           </div>
 
           <div class="form-group">
+            <label for="exampleInputName2"> Qrup </label>
+            @if ($exam->qrup_id==0)
+            <input type="text"  value="Qrup silinib" class="form-control" id="exampleInputName2">
+            @else
+            <input type="text" value="{{ $exam->getGroup->name }}" class="form-control" id="exampleInputName2">
+            @endif
+          </div>
+
+          <div class="form-group">
             <label for="exampleInputName2"> Tələbə </label>
             <input type="text" name="title" value="{{ $exam->getUser->name }}" class="form-control" id="exampleInputName2">
           </div>

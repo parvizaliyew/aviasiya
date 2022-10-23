@@ -50,6 +50,8 @@ class User extends Authenticatable
         return $this->belongsTo(User::class, 'group_id', 'id');
     }
 
+ 
+
     // public function getExam()
     // {
     //     return $this->hasMany(Exam::class,'user_id','id');

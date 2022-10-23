@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('lesson_id');
             $table->string('user_id');
+            $table->string('qrup_id');
             $table->string('price');
             $table->timestamps();
         });

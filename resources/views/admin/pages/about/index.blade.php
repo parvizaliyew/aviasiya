@@ -20,7 +20,7 @@
           @enderror
           <div class="form-group">
             <label for="exampleTextarea1">Mətn</label>
-            <input class="form-control"  name="desc" id="exampleTextarea1" value="{{ $about->desc }}" rows="4"></input>
+            <textarea class="form-control"  name="desc" id="exampleTextarea1" value="" rows="4">{{ $about->desc }}</textarea>
           </div>
           @error('desc')
           <span class="text-danger mt-2">{{ $message }}</span> <br>

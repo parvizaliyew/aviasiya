@@ -39,6 +39,15 @@
             </select>
           </div>
 
+          <div class="form-group">
+            <label for="exampleInputName1">Qrup Seç </label>
+            <select name="qrup_id" class="form-control" id="">
+              @foreach ($groups as $g)
+              <option {{ $exam->qrup_id==$g->id ? 'selected' : '' }} value="{{ $g->id }}">{{ $g->name }}</option>
+              @endforeach
+            </select>
+          </div>
+
           <button type="submit" class="btn btn-primary mr-2">Yenilə</button>
           <button class="btn btn-dark"><a href="{{ route('admin.exam.index') }}">Geri</a></button>
         </form>

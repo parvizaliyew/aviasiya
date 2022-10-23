@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Exam;
+use App\Models\User;
 use App\Models\Group;
 use App\Models\Lesson;
 use App\Models\Kafedra;
@@ -143,6 +145,12 @@ class GroupController extends Controller
                 'qrup_id'=>0
             ]
         );
+        $exam=Exam::where('qrup_id',$group->id)->update(
+            [
+                'qrup_id'=>0
+            ]
+        );
+        ;
         $group->delete();
         toastr()->success('Qrupunuz uğurla silindi');
         return redirect()->route('admin.group.index');

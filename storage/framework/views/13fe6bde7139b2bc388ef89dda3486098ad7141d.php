@@ -27,7 +27,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
           <div class="form-group">
             <label for="exampleTextarea1">Mətn</label>
-            <input class="form-control"  name="desc" id="exampleTextarea1" value="<?php echo e($about->desc); ?>" rows="4"></input>
+            <textarea class="form-control"  name="desc" id="exampleTextarea1" value="" rows="4"><?php echo e($about->desc); ?></textarea>
           </div>
           <?php $__errorArgs = ['desc'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
