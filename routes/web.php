@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\DekanatController;
 use App\Http\Controllers\Admin\KafedraController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeacherController;
 
 
@@ -88,12 +89,19 @@ Route::group(['middleware' => 'notlogin'],function()
         Route::get('/messages/{id}',[MessageController::class,     'show'])->name('mesaj.show');
         Route::get('/messages/delete/{id}',[MessageController::class,     'delete'])->name('mesaj.delete');
 
+        Route::get('/setting',[SettingController::class,     'index'])->name('setting.index');
+        Route::post('/setting/{id}',[SettingController::class,    'update'])->name('setting.update');
+
+
+
 
 
 
 
     });
      Route::get('/exam-result',[ResultController::class,'index'])->name('result');
+             Route::post('/about/{id}',[AboutController::class,    'update'])->name('about.update');
+
 
     Route::get('/',[AdminController::class,     'index'])->name('index');
     Route::get('/profil-update',[ProfilController::class,'edit'])->name('profil');
@@ -110,6 +118,8 @@ Route::get('/haqqimizda', [FrontController::class,'about'])->name('about');
 Route::get('/elaqe', [FrontController::class,'contact'])->name('contact');
 Route::post('/elaqe', [FrontController::class,'contact_post'])->name('contact_post');
 Route::get('/xeberler', [FrontController::class,'news'])->name('news');
+Route::get('/xeber/{id}', [FrontController::class,'single'])->name('single');
+
 
 
 

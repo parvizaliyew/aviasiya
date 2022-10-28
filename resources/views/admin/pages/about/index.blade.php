@@ -8,7 +8,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Slayder Yenilə</h4>
+        <h4 class="card-title"> Haqqımızda</h4>
         <form action="{{ route('admin.about.update',$about->id) }}" enctype="multipart/form-data" method="POST" class="forms-sample">
             @csrf
           <div class="form-group">
@@ -37,7 +37,7 @@
           @enderror
           
           <button type="submit" class="btn btn-primary mr-2">Yenilə</button>
-          <button class="btn btn-dark"><a href="{{ route('admin.slider.index') }}">Geri</a></button>
+          <button class="btn btn-dark"><a href="{{ route('admin.index') }}">Geri</a></button>
         </form>
       </div>
     </div>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="btn text-white" href="">Əsas Səhifə</a>
+                        <a class="btn text-white" href="{{ route('index') }}">Əsas Səhifə</a>
                         <i class="fas fa-angle-right text-white"></i>
                         <a class="btn text-white disabled" href="">Haqqımızda</a>
                     </div>
@@ -27,9 +27,9 @@
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="{{ $about->img }}" alt="">
+            <div class="d-flex">
+                <div class="col-lg-5 py-2">
+                    <img class="img-fluid" style="height: 350px" src="{{ $about->img }}" alt="">
                 </div>
                 <div class="col-lg-7 mt-5 mt-lg-0 pl-lg-5">
                     <h1 class="text-secondary text-uppercase font-weight-medium mb-4">Haqqımızda</h1>

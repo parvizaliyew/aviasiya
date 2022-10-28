@@ -178,6 +178,17 @@
               <span class="menu-title">Mesajlar</span>
             </a>
           </li>
+
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="{{ route('admin.setting.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">Ayarlar</span>
+            </a>
+          </li>
+
           @endrole
           <li class="nav-item menu-items">
             <a class="nav-link " href="{{ route('admin.profil') }}">

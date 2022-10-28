@@ -33,7 +33,7 @@
                                 <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 100px; height: 100px; border-width: 15px !important;">
                                     <i class="fa fa-2x fa-map-marker-alt text-secondary"></i>
                                 </div>
-                                <h5 class="font-weight-medium m-0 mt-2">123 Street, New York, USA</h5>
+                                <h5 class="font-weight-medium m-0 mt-2">{{ $setting->adress }}</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -41,7 +41,7 @@
                                 <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 100px; height: 100px; border-width: 15px !important;">
                                     <i class="fa fa-2x fa-envelope-open text-secondary"></i>
                                 </div>
-                                <h5 class="font-weight-medium m-0 mt-2">info@example.com</h5>
+                                <h5 class="font-weight-medium m-0 mt-2">{{ $setting->email }}</h5>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -49,7 +49,7 @@
                                 <div class="d-inline-flex align-items-center justify-content-center bg-white border border-light shadow rounded-circle mb-4" style="width: 100px; height: 100px; border-width: 15px !important;">
                                     <i class="fa fa-2x fa-phone-alt text-secondary"></i>
                                 </div>
-                                <h5 class="font-weight-medium m-0 mt-2">+012 345 6789</h5>
+                                <h5 class="font-weight-medium m-0 mt-2">{{ $setting->number }}</h5>
                             </div>
                         </div>
                     </div>

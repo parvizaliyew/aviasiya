@@ -178,6 +178,17 @@
               <span class="menu-title">Mesajlar</span>
             </a>
           </li>
+
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link " href="<?php echo e(route('admin.setting.index')); ?>">
+              <span class="menu-icon">
+                <i class="mdi mdi-information"></i>
+              </span>
+              <span class="menu-title">Ayarlar</span>
+            </a>
+          </li>
+
           <?php endif; ?>
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.profil')); ?>">

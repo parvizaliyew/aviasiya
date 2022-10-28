@@ -47,7 +47,6 @@ class AboutController extends Controller
 
         if($validator->fails())
         {
-            return 'saa';
             return redirect()->back()->withErrors($validator);
         }
 
