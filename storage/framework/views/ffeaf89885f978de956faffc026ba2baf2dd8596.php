@@ -38,11 +38,11 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="<?php echo e(route('index')); ?>" class="nav-item nav-link active">Əsas Səhifə</a>
-                        <a href="<?php echo e(route('about')); ?>" class="nav-item nav-link">Haqqımızda</a>
-                        <a href="<?php echo e(route('news')); ?>" class="nav-item nav-link">Xəbərlər</a>
-                        <a href="<?php echo e(route('contact')); ?>" class="nav-item nav-link">Ələqə</a>
-                        <a href="<?php echo e(route('admin.login')); ?>" target="__blank" class="nav-item nav-link">Giriş</a>
+                        <a href="<?php echo e(route('index')); ?>" class="nav-item nav-link <?php echo e(Route::is('index') ? 'active' : ''); ?>">Əsas Səhifə</a>
+                        <a href="<?php echo e(route('about')); ?>" class="nav-item nav-link <?php echo e(Route::is('about') ? 'active' : ''); ?>">Haqqımızda</a>
+                        <a href="<?php echo e(route('news')); ?>" class="nav-item nav-link <?php echo e(Route::is('news') ? 'active' : ''); ?>">Xəbərlər</a>
+                        <a href="<?php echo e(route('contact')); ?>" class="nav-item nav-link <?php echo e(Route::is('contact') ? 'active' : ''); ?>">Ələqə</a>
+                        <a href="<?php echo e(route('admin.login')); ?>" target="__blank" class="nav-item nav-link ">Giriş</a>
                         <a href="<?php echo e(route('admin.signup')); ?>" target="__blank" class="nav-item nav-link">Qeydiyyatdan Keç</a>
                     </div>
                 </div>

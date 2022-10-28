@@ -38,11 +38,11 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="{{ route('index') }}" class="nav-item nav-link active">Əsas Səhifə</a>
-                        <a href="{{ route('about') }}" class="nav-item nav-link">Haqqımızda</a>
-                        <a href="{{ route('news') }}" class="nav-item nav-link">Xəbərlər</a>
-                        <a href="{{ route('contact') }}" class="nav-item nav-link">Ələqə</a>
-                        <a href="{{ route('admin.login') }}" target="__blank" class="nav-item nav-link">Giriş</a>
+                        <a href="{{ route('index') }}" class="nav-item nav-link {{ Route::is('index') ? 'active' : '' }}">Əsas Səhifə</a>
+                        <a href="{{ route('about') }}" class="nav-item nav-link {{ Route::is('about') ? 'active' : '' }}">Haqqımızda</a>
+                        <a href="{{ route('news') }}" class="nav-item nav-link {{ Route::is('news') ? 'active' : '' }}">Xəbərlər</a>
+                        <a href="{{ route('contact') }}" class="nav-item nav-link {{ Route::is('contact') ? 'active' : '' }}">Ələqə</a>
+                        <a href="{{ route('admin.login') }}" target="__blank" class="nav-item nav-link ">Giriş</a>
                         <a href="{{ route('admin.signup') }}" target="__blank" class="nav-item nav-link">Qeydiyyatdan Keç</a>
                     </div>
                 </div>
