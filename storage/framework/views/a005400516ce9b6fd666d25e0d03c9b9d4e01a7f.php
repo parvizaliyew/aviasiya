@@ -10,7 +10,8 @@
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="carousel-item <?php if($loop->index==0): ?> active <?php endif; ?>">
+                
+                <div  class="carousel-item <?php if($loop->index==0): ?> active <?php endif; ?>">
                     <img class="w-100" src="<?php echo e(asset($s->img)); ?>" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">

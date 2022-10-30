@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('title');
             $table->text('msj');
+            $table->dateTime('seen_message')->nullable();
             $table->timestamps();
         });
     }

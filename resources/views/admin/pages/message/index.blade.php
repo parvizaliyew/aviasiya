@@ -20,6 +20,7 @@
                 <th style="font-size:20px">Ad  </th>
                 <th style="font-size:20px">Email  </th>
                 <th style="font-size:20px"> Baslıq  </th>
+                <th style="font-size:20px"> Tarix  </th>
                 <th style="font-size:20px"> Mesaj  </th>
                 <th style="font-size:20px"> Proseslər </th>
               </tr>
@@ -38,7 +39,14 @@
                 </td>
                 <td>
                   {{ Str::limit($m->title, 15, '...') }}
-              </td>
+                </td>
+                <td>
+                  @if ($m->seen_message===null)
+                      <button class="btn btn-success">Yeni mesaj</button>
+                  @else
+                      {{ ($m->created_at->diffForHumans()) }} oxundu
+                  @endif
+                </td>
               <td>
                 {{ Str::limit($m->msj, 15, '...') }}
               </td>

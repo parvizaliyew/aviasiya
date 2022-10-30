@@ -164,7 +164,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.exam.index')); ?>">
               <span class="menu-icon">
-                <i class="mdi mdi-information"></i>
+                <i class="mdi mdi-biohazard"></i>
               </span>
               <span class="menu-title">İmtahan balı</span>
             </a>
@@ -173,7 +173,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.mesaj.index')); ?>">
               <span class="menu-icon">
-                <i class="mdi mdi-information"></i>
+                <i class="mdi mdi-facebook-messenger"></i>
               </span>
               <span class="menu-title">Mesajlar</span>
             </a>
@@ -183,7 +183,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link " href="<?php echo e(route('admin.setting.index')); ?>">
               <span class="menu-icon">
-                <i class="mdi mdi-information"></i>
+                <i class="mdi mdi-settings"></i>
               </span>
               <span class="menu-title">Ayarlar</span>
             </a>
@@ -203,7 +203,7 @@
          <li class="nav-item menu-items">
           <a class="nav-link " href="<?php echo e(route('admin.result')); ?>">
             <span class="menu-icon">
-              <i class="mdi mdi-account-star"></i>
+              <i class="mdi mdi-biohazard"></i>
             </span>
             <span class="menu-title">Imtahan Nəticəsi</span>
           </a>

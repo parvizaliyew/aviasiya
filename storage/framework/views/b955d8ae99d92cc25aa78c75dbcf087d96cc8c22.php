@@ -12,7 +12,32 @@
                 
                 
                 
-                
+                <li class="nav-item dropdown border-left">
+                  <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-email"></i>
+                    <span class="count bg-success"></span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                    <h6 class="p-3 mb-0">YENI MESAJLAR</h6>
+                    <?php
+                        $messages=\App\Models\Message::where('seen_message',null)->take(3)->get();
+                        $messages1=\App\Models\Message::where('seen_message',null)->get();
+                    ?>
+                    <?php $__currentLoopData = $messages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a class="dropdown-item preview-item">
+                     
+                      <div class="preview-item-content">
+                        <p class="preview-subject ellipsis mb-1"><?php echo e($message->name); ?></p>
+                        <p class="text-muted mb-0"> <button class="btn btn-success">Yeni Mesaj</button> </p>
+                      </div>
+                    </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <div class="dropdown-divider"></div>
+                    <p class="p-3 mb-0 text-center"> <button style="border-radius:50%" class="btn btn-primary"><?php echo e($messages1->count()); ?></button>  Yeni mesaj</p>
+                  </div>
+                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                     <div class="navbar-profile">

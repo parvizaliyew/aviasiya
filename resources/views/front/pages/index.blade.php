@@ -10,7 +10,8 @@
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @foreach ($sliders as $s)
-                <div class="carousel-item @if($loop->index==0) active @endif">
+                {{-- style="width:86%;margin-left:120px;" --}}
+                <div  class="carousel-item @if($loop->index==0) active @endif">
                     <img class="w-100" src="{{ asset($s->img) }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">

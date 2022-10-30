@@ -17,6 +17,11 @@ class MessageController extends Controller
     public function show($id)
     {
         $message=Message::findOrFail($id);
+        if($message->seen_message===null)
+        {
+            $message->seen_message=now()->addHours(4);
+            $message->save();
+        }
         return view('admin.pages.message.show',compact('message'));
     }
     

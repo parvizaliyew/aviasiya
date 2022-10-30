@@ -17,7 +17,7 @@ class FrontController extends Controller
     {
         $teachers=Teacher::with('getKafedra')->get();
         $news=News::orderBy('created_at','DESC')->take(3)->get();
-        $sliders=Slider::get();
+        $sliders=Slider::orderBy('sort','ASC')->get();
         $about=About::first();
         return view('front.pages.index',compact('sliders','about','teachers','news'));
     }
