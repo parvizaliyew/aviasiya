@@ -71,7 +71,7 @@
 
                   <div class="form-group">
                     <label for="password">Şifrə *</label>
-                    <input type="text" id="password" name="password" class="form-control p_input">
+                    <input type="password" id="password" name="password" class="form-control p_input">
                   </div>
                   @error('password')
                   <span class="text-danger mt-2">{{ $message }}</span> <br>

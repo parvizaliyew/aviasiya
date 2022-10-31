@@ -102,7 +102,10 @@
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              <a href="<?php echo e(route('news')); ?>" style="margin: 0 auto" class="btn btn-primary">Ətraflı</a>
+                <div style="margin: 7% 49%">
+                    <a href="<?php echo e(route('news')); ?>"  class="btn btn-primary">Ətraflı</a>
+
+                </div>
             </div>
         </div>
     </div>

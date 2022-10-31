@@ -66,7 +66,7 @@
           <div class="col-sm-4 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h5 style="font-size:25px" >Kafedra</h5>
+                <h5 style="font-size:25px" >Dekanat</h5>
                 <div class="row">
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">

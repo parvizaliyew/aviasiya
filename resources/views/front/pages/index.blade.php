@@ -102,7 +102,10 @@
                     </div>
                 </div>
                 @endforeach
-              <a href="{{ route('news') }}" style="margin: 0 auto" class="btn btn-primary">Ətraflı</a>
+                <div style="margin: 7% 49%">
+                    <a href="{{ route('news') }}"  class="btn btn-primary">Ətraflı</a>
+
+                </div>
             </div>
         </div>
     </div>
