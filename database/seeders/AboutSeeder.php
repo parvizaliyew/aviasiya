@@ -16,9 +16,9 @@ class AboutSeeder extends Seeder
     public function run()
     {
         $about=About::create([
-            'title'=>'Basliq',
-            'desc'=>'Aviasiya',
-            'img'=>'manager/assets/images/about.jpg',
+            'title'    =>  fake()->name(),
+            'desc'   =>  fake()->text(500),
+            'img'    =>  fake()->ImageUrl(),
         ]);
     }
 }
